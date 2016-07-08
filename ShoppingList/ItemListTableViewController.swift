@@ -81,19 +81,15 @@ class ItemListTableViewController: UITableViewController, ItemPurchasedDelegate 
         
         // Diagnostics
         
-        print("Items breakdown:")
-        print("\ttotal items purchased: \(ItemController.sharedController.purchasedItems.count)")
-        print("\ttotal items not purchased: \(ItemController.sharedController.unpurchasedItems.count)")
+//        print("Items breakdown:")
+//        print("\ttotal items purchased: \(ItemController.sharedController.purchasedItems.count)")
+//        print("\ttotal items not purchased: \(ItemController.sharedController.unpurchasedItems.count)")
         
         // Change work
-        
-//        guard let index = tableView.indexPathForCell(cell)?.row else { return }
         
         guard let indexPath = tableView.indexPathForCell(cell) else { return }
         
         let item = ItemController.sharedController.items[indexPath.row]
-        
-        print("Item (before update): index = \(index), name = \(item.name), havePurchased = \(item.havePurchased)")
         
         ItemController.sharedController.toggleHavePurchased(item)
         
@@ -101,8 +97,6 @@ class ItemListTableViewController: UITableViewController, ItemPurchasedDelegate 
         let updatedItem = ItemController.sharedController.items[indexPath.row]
         
         cell.updateWith(updatedItem)
-        
-        print("Item (after update): index = \(index), name = \(item.name), havePurchased = \(item.havePurchased)")
         
         tableView.beginUpdates()
         tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
@@ -125,8 +119,6 @@ class ItemListTableViewController: UITableViewController, ItemPurchasedDelegate 
         
         cell.updateWith(item)
         cell.delegate = self
-        
-        print("Item: index = \(index), name = \(item.name), havePurchased = \(item.havePurchased)")
 
         return cell
     }
