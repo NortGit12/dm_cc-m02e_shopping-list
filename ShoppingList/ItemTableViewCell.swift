@@ -17,9 +17,9 @@ class ItemTableViewCell: UITableViewCell {
     
     weak var delegate: ItemPurchasedDelegate?
     
+    var item: Item?
+    
     // MARK: - General
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +30,20 @@ class ItemTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    // MARK: - Method(s)
+    
+    func updateWith(item: Item) {
+        
+        itemNameLabel.text = item.name
+        
+        switch item.havePurchased.boolValue {
+        case true: havePurchasedButton.imageView?.image = UIImage(named: "complete")
+        case false: havePurchasedButton.imageView?.image = UIImage(named: "incomplete")
+        }
+        
     }
     
     
@@ -44,6 +58,6 @@ class ItemTableViewCell: UITableViewCell {
 
 protocol ItemPurchasedDelegate: class {
     
-    func havePurchasedStateChangeInitiated(cell: UITableViewCell)
+    func havePurchasedStateChangeInitiated(cell: ItemTableViewCell)
     
 }

@@ -27,6 +27,26 @@ class ItemController {
         
     }
     
+    var purchasedItems: [Item] {
+        
+        let purchasedItems = items.filter{ item -> Bool in
+            item.havePurchased.boolValue == true
+        }
+        
+        return purchasedItems
+    }
+    
+    var unpurchasedItems: [Item] {
+        
+        let unpurchasedItems = items.filter{ item -> Bool in
+            
+            item.havePurchased.boolValue == false
+            
+        }
+        
+        return unpurchasedItems
+    }
+    
     
     // MARK: - Methods (CRUD)
     

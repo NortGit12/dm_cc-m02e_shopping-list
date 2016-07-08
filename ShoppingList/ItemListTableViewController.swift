@@ -44,9 +44,9 @@ class ItemListTableViewController: UITableViewController, ItemPurchasedDelegate 
         // Do add work
         
         let addItemMessage = "Please add an item to your shopping list"
-        let notificationMessage = "If you close the app within 30 seconds you'll get a welcome notification.  :)"
+        let notificationMessage = "\n\nIf you close the app within 30 seconds of seeing this app for the first time you'll get a welcome notification.  :)"
         
-        let addItemAlertController = UIAlertController(title: "Add Item", message: "\(addItemMessage)\n\n\(notificationMessage)", preferredStyle: .Alert)
+        let addItemAlertController = UIAlertController(title: "Add Item", message: "\(addItemMessage)\(notificationMessage)", preferredStyle: .Alert)
         
         addItemAlertController.addTextFieldWithConfigurationHandler { textField in
             
@@ -77,19 +77,36 @@ class ItemListTableViewController: UITableViewController, ItemPurchasedDelegate 
     
     // MARK: - ItemPurchasedDelegate
     
-    func havePurchasedStateChangeInitiated(cell: UITableViewCell) {
+    func havePurchasedStateChangeInitiated(cell: ItemTableViewCell) {
         
-        guard let cell = cell as? ItemTableViewCell, index = tableView.indexPathForCell(cell)?.row else { return }
+        // Diagnostics
         
-        let item = ItemController.sharedController.items[index]
+        print("Items breakdown:")
+        print("\ttotal items purchased: \(ItemController.sharedController.purchasedItems.count)")
+        print("\ttotal items not purchased: \(ItemController.sharedController.unpurchasedItems.count)")
+        
+        // Change work
+        
+//        guard let index = tableView.indexPathForCell(cell)?.row else { return }
+        
+        guard let indexPath = tableView.indexPathForCell(cell) else { return }
+        
+        let item = ItemController.sharedController.items[indexPath.row]
+        
+        print("Item (before update): index = \(index), name = \(item.name), havePurchased = \(item.havePurchased)")
         
         ItemController.sharedController.toggleHavePurchased(item)
         
-        switch item.havePurchased.boolValue {
-        case true: cell.havePurchasedButton.imageView?.image = UIImage(named: "incomplete")
-        case false: cell.havePurchasedButton.imageView?.image = UIImage(named: "completed")
-        }
+        // Get the updated item
+        let updatedItem = ItemController.sharedController.items[indexPath.row]
         
+        cell.updateWith(updatedItem)
+        
+        print("Item (after update): index = \(index), name = \(item.name), havePurchased = \(item.havePurchased)")
+        
+        tableView.beginUpdates()
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.endUpdates()
     }
     
 
@@ -106,14 +123,10 @@ class ItemListTableViewController: UITableViewController, ItemPurchasedDelegate 
 
         let item = ItemController.sharedController.items[indexPath.row]
         
-        cell.itemNameLabel.text = item.name
+        cell.updateWith(item)
+        cell.delegate = self
         
-        switch item.havePurchased.boolValue {
-            
-        case true: cell.havePurchasedButton.imageView?.image = UIImage(named: "completed")
-        case false: cell.havePurchasedButton.imageView?.image = UIImage(named: "incomplete")
-            
-        }
+        print("Item: index = \(index), name = \(item.name), havePurchased = \(item.havePurchased)")
 
         return cell
     }
