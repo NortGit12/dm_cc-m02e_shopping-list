@@ -1,26 +1,125 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Cks-7c-iFd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Item List Table View Controller-->
+        <scene sceneID="u6n-za-JAp">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="26Q-Oi-UmI" customClass="ItemListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="V7e-ym-ub5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemTableCell" id="zxU-oe-TPg" customClass="ItemTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zxU-oe-TPg" id="Afs-kV-H4g">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-tG-tmr">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKR-NJ-AXW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="556" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sN-o4-P1r">
+                                                    <rect key="frame" x="556" y="0.0" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="5go-Nl-cA4"/>
+                                                        <constraint firstAttribute="width" constant="40" id="RF5-bO-Vgk"/>
+                                                        <constraint firstAttribute="width" secondItem="1sN-o4-P1r" secondAttribute="height" multiplier="40:40" id="Znk-eM-3az"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                                    <state key="normal" image="incomplete"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="5go-Nl-cA4"/>
+                                                            <exclude reference="RF5-bO-Vgk"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="havePurchaseButtonTapped:" destination="zxU-oe-TPg" eventType="touchUpInside" id="GrJ-F3-Bkg"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1sN-o4-P1r" firstAttribute="leading" secondItem="lKR-NJ-AXW" secondAttribute="trailing" constant="2" id="1hb-zU-jBT"/>
+                                                <constraint firstItem="1sN-o4-P1r" firstAttribute="top" secondItem="ezQ-tG-tmr" secondAttribute="top" id="5eL-W1-4qM"/>
+                                                <constraint firstAttribute="bottom" secondItem="lKR-NJ-AXW" secondAttribute="bottom" id="P92-fe-bMz"/>
+                                                <constraint firstItem="lKR-NJ-AXW" firstAttribute="leading" secondItem="ezQ-tG-tmr" secondAttribute="leading" id="WRO-bj-ijS"/>
+                                                <constraint firstItem="lKR-NJ-AXW" firstAttribute="top" secondItem="ezQ-tG-tmr" secondAttribute="top" id="fjw-Ob-1IV"/>
+                                                <constraint firstAttribute="trailing" secondItem="1sN-o4-P1r" secondAttribute="trailing" id="fzB-LV-lFi"/>
+                                                <constraint firstAttribute="bottom" secondItem="1sN-o4-P1r" secondAttribute="bottom" id="gln-Sn-pBJ"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="1hb-zU-jBT"/>
+                                                </mask>
+                                            </variation>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ezQ-tG-tmr" secondAttribute="trailing" id="3G4-XF-mM1"/>
+                                        <constraint firstAttribute="bottom" secondItem="ezQ-tG-tmr" secondAttribute="bottom" id="85p-dM-h8S"/>
+                                        <constraint firstItem="ezQ-tG-tmr" firstAttribute="leading" secondItem="Afs-kV-H4g" secondAttribute="leading" id="BlK-x5-uzi"/>
+                                        <constraint firstItem="ezQ-tG-tmr" firstAttribute="top" secondItem="Afs-kV-H4g" secondAttribute="top" id="dfQ-SY-5HF"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="havePurchasedButton" destination="1sN-o4-P1r" id="LMM-0H-p4t"/>
+                                    <outlet property="itemNameLabel" destination="lKR-NJ-AXW" id="Mf0-Lk-b6L"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="26Q-Oi-UmI" id="peH-xh-CoZ"/>
+                            <outlet property="delegate" destination="26Q-Oi-UmI" id="mVL-iN-2vr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="c5k-kT-nce">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="oAZ-Np-tEK">
+                            <connections>
+                                <action selector="addItemButtonTapped:" destination="26Q-Oi-UmI" id="24L-Fv-Nih"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addItemButton" destination="oAZ-Np-tEK" id="4nr-sI-cHi"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2D-Cx-Ohd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1373" y="424"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rhi-FM-6aM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cks-7c-iFd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MpQ-Jz-UJZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="26Q-Oi-UmI" kind="relationship" relationship="rootViewController" id="wqF-dW-yrk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KxO-AK-SvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="330" y="442"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="incomplete" width="512" height="512"/>
+    </resources>
 </document>
