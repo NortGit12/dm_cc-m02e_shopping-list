@@ -30,7 +30,7 @@
 		1F3DCD271D303DF600C2BC95 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1F3DCD291D303E7300C2BC95 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1F3DCD2A1D303E7300C2BC95 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		1F3DCD2E1D303ECB00C2BC95 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		1F3DCD2E1D303ECB00C2BC95 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stack.swift; path = ShoppingList/Stack.swift; sourceTree = "<group>"; };
 		1F3DCD301D303F5700C2BC95 /* ItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
 		1F3DCD331D30426000C2BC95 /* ItemListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListTableViewController.swift; sourceTree = "<group>"; };
 		1F3DCD361D30485000C2BC95 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,7 +70,6 @@
 				1F3DCD2D1D303E7C00C2BC95 /* Model + CoreData */,
 				1F3DCD321D30423B00C2BC95 /* ModelController */,
 				1F3DCD351D30426500C2BC95 /* ViewController */,
-				1F3DCD2E1D303ECB00C2BC95 /* Stack.swift */,
 				1A4A23201CCA8D2C003A4350 /* Main.storyboard */,
 				1F3DCD261D303DF600C2BC95 /* Model.xcdatamodeld */,
 				1A4A23231CCA8D2C003A4350 /* Assets.xcassets */,
@@ -83,6 +82,7 @@
 		1F3DCD2D1D303E7C00C2BC95 /* Model + CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				1F3DCD2E1D303ECB00C2BC95 /* Stack.swift */,
 				1F3DCD291D303E7300C2BC95 /* Item+CoreDataProperties.swift */,
 				1F3DCD2A1D303E7300C2BC95 /* Item.swift */,
 			);

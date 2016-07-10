@@ -6,7 +6,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Item List Table View Controller-->
+        <!--Shopping List-->
         <scene sceneID="u6n-za-JAp">
             <objects>
                 <tableViewController id="26Q-Oi-UmI" customClass="ItemListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,20 +19,20 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zxU-oe-TPg" id="Afs-kV-H4g">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezQ-tG-tmr">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKR-NJ-AXW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="556" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="557" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sN-o4-P1r">
-                                                    <rect key="frame" x="556" y="0.0" width="44" height="44"/>
+                                                    <rect key="frame" x="557" y="0.0" width="43" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="5go-Nl-cA4"/>
                                                         <constraint firstAttribute="width" constant="40" id="RF5-bO-Vgk"/>
@@ -85,7 +85,7 @@
                             <outlet property="delegate" destination="26Q-Oi-UmI" id="mVL-iN-2vr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="c5k-kT-nce">
+                    <navigationItem key="navigationItem" title="Shopping List" id="c5k-kT-nce">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="oAZ-Np-tEK">
                             <connections>
                                 <action selector="addItemButtonTapped:" destination="26Q-Oi-UmI" id="24L-Fv-Nih"/>
@@ -116,7 +116,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxO-AK-SvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330" y="442"/>
+            <point key="canvasLocation" x="672" y="424"/>
         </scene>
     </scenes>
     <resources>
